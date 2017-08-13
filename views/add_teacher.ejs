@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Add Teacher</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <%- include layout/header %>
+</head>
+  <body>  
+    
+    <div class="container">  
+      <h3>Input New Teacher</h3>
+      
+      <form action="/teachers/add" method="post">
+        <span><% if (err) {%> <%= err %> <%}%></span>
+        <br>
+        <div class="form-group">  
+          <label>First Name : </label>
+          <input class="form-control" type="text" name="first_name" value="">
+        </div>
+        <div class="form-group">
+          <label>Last Name : </label>
+          <input class="form-control" type="text" name="last_name" value="">
+        </div>
+        <div class="form-group">
+          <label>Email : </label>
+          <input class="form-control" type="text" name="email" value="">
+        </div>
+        <div class="form-group">
+          <label>Subject : </label>
+          <select class="form-control" name="SubjectId">
+            <% data_subjects.forEach(subject => { %>
+            <option value="<%= subject.id%>"><%= subject.subject_name%></option>
+            <% })%>
+          </select>
+        </div>
+          <br>
+        <button type="submit" name="" class="btn btn-default">Add New Teacher</button>
+      </form>
+    </div>
+  </body>
+  
+</html>

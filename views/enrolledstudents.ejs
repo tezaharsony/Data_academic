@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <%- include layout/header %>
+</head>
+<body>
+  
+  <div class="container">
+  <h3>Subject Name : <strong><%= subject.subject_name %></strong></h3>
+  <h5><a href="/subjects">Return to Subject List</a></h5>
+  <br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Student Name</th>
+      <th>Score</th>
+      <th>Score Letter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% let i = 0 %>
+    <% student_subject.forEach(subjects => { %>
+    <tr>
+      <td><%=subjects.id %></td>
+      
+      <td><%= subjects.Student.first_name + ' ' + subjects.Student.last_name %></td>
+      
+      <%if(subjects.score == null){%>
+      <td><a href="/subjects/<%= subjects.id%>/givescore/<%= subjects.SubjectId%>">Add Score</a></td>
+      <%} else { %>
+      
+      <td><%= subjects.score%></td>
+      <%}%>
+      <td><%= scoreLetter[i]%></td><% i++ %>
+    </tr>
+    <% })%>
+  </tbody>
+</table>
+</div>
+  
+  
+
+</body>
+</html>

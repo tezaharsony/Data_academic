@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <%- include layout/header %>
+</head>
+<body>
+  
+  <div class="container">
+  <h3>Show Data Student</h3>
+  <h5><a href="/students/add">Add New Student</a></h5>
+  <br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Jurusan</th>
+      <th>Action</th>
+      <th>Option</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% data_students.forEach(student => { %>
+    <tr>
+      <td><%= student.id %></td>
+      <td><%= student.first_name%></td>
+      <td><%= student.last_name%></td>
+      <td><%= student.email%></td>
+      <td><%= student.jurusan%></td>
+      <td><a href="/students/<%=student.id%>/addsubject">Add Subject</a></td>
+      <td><a href="/students/edit/<%=student.id%>">Update</a> | <a href="/students/delete/<%=student.id%>" onclick="return confirm('Are you sure want to delete this student?');">Delete</a></td>
+    </tr>
+    <% })%>
+  </tbody>
+</table>
+</div>
+  
+  
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Register</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    
+    <div class="container"><br><br>
+      <h3>Welcome to <strong>School of Coding</strong></h3>
+      <h2>Register</h2><br>
+      <form action="/register" method="post" class="register-form">
+      <div class="form-group">
+        
+      <label>Username : </label>
+      <input type="text" name="username" value="" placeholder="username" class="form-control"><br><br>
+      
+      <label>Password : </label>
+      <input type="text" name="password" value="" placeholder="password" class="form-control"><br><br>
+      
+      <label>Role : </label>
+      <select class="form-control" name="role">
+        <option value="teacher" selected>Teacher</option>
+        <option value="academic">Academic Coordinator</option>
+        <option value="headmaster">Headmaster</option>
+      </select>
+    </div>
+      <br>
+      <button type="submit" name="button" class="btn btn-default">Register</button>
+      <br><br><h5>If you've registered, login <a href="/login">here</a></h5>
+    </form>
+  </body>
+</html>

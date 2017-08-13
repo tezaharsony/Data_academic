@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Teacher</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <%- include layout/header %>
+</head>
+<body>
+  
+  <div class="container">
+  <h3>Show Data Teacher</h3>
+  <h5><a href="/teachers/add">Add New Teacher</a></h5>
+  <br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>E-Mail</th>
+      <th>Subject</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% data_teachers.forEach(teacher => { %>
+    <tr>
+      <td><%= teacher.id %></td>
+      <td><%= teacher.first_name%></td>
+      <td><%= teacher.last_name%></td>
+      <td><%= teacher.email%></td>
+      <td><%= teacher.subject%></td>
+      <td><a href="/teachers/edit/<%=teacher.id%>">Update</a> | <a href="/teachers/delete/<%=teacher.id%>" onclick="return confirm('Are you sure want to delete this teacher?');">Delete</a></td>
+    </tr>
+    <% })%>
+  </tbody>
+</table>
+</div>
+  
+  
+
+</body>
+</html>

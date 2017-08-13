@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Subject</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <%- include layout/header %>
+</head>
+<body>
+
+  <div class="container">
+  <h3>Show Data Subject</h3>
+  <br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Subject Name</th>
+      <th>Teacher</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% data_subjects.forEach(subject => { %>
+    <tr>
+      <td><%= subject.id %></td>
+      <td><%= subject.subject_name%></td>
+      <td>
+          <ol>
+                <% subject.Teachers.forEach(teacher => { %>
+                <li><%= teacher.first_name + ' ' + teacher.last_name %></li> 
+                <% })%>
+          </ol>
+    </td>
+    <td><a href="/subjects/<%=subject.id%>/enrolledstudents">Enrolled Student</a></td>
+    </tr>
+    <% })%>
+  </tbody>
+</table>
+</div>
+  
+  
+
+</body>
+</html>

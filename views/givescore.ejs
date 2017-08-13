@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Input Score</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <%- include layout/header %>
+</head>
+<body>
+  
+  <div class="container">
+  <h3>Input Student Score</h3>
+  <h5><a href="/subjects">Return to Subject List</a></h5>
+  <br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Subject</th>
+      <th>Score</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= student_subject.Student.first_name + ' ' + student_subject.Student.last_name%></td>
+      <td><%= student_subject.Subject.subject_name%></td>
+      <td><form action="/subjects/<%=student_subject.id%>/givescore/<%= student_subject.Subject.id %>" method="post">
+        <input type="text" name="score" value="" placeholder="input 0-100" class="form-control"><br><br><button type="submit" name="" class="btn btn-default"> Add Score </button>
+      </form></td>
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+  
+  
+
+</body>
+</html>
