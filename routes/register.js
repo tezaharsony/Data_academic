@@ -7,16 +7,21 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res, next) => {
-  model.User.create({
-    'username' : req.body.username,
-    'password' : req.body.password,
-    'role' : req.body.role,
-    'createdAt' : new Date(),
-    'updatedAt' : new Date()
-  })
-  .then((data_user) => {
-    res.render('login')
-  })
+  if(!req.body.username || !req.body.password)
+  {
+    res.send('Please enter username and password')
+  } else {
+    model.User.create({
+      'username' : req.body.username,
+      'password' : req.body.password,
+      'role' : req.body.role,
+      'createdAt' : new Date(),
+      'updatedAt' : new Date()
+    })
+    .then((data_user) => {
+      res.render('login')
+    })
+  }
 })
 
 module.exports = router;

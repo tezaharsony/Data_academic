@@ -43,10 +43,13 @@ router.post('/add', (req, res, next) => {
       }
     )
     .then((student) => {
+      console.log("=============================");
       res.redirect('/students')
-  })
+    })
   .catch((err)=>{
-    res.render('add_student', {errMsg :err.message});
+    console.log("masuk error nih =========================");
+    console.log(err);
+    res.render('add_student', {err :err.message});
   })
 })
 
@@ -66,7 +69,7 @@ router.post('/edit/:id', function(req, res, next) {
   model.Student.findById(id)
   .then(data_student => {
     data_student.update({
-      'first_name': first_name, 
+      'first_name': first_name,
       'last_name':last_name,
       'email':email,
       'jurusan':jurusan})
@@ -117,7 +120,7 @@ router.get('/:id/addsubject', function(req, res, next){
 router.post('/:id/addsubject', function(req, res, next) {
   model.StudentSubject.create({
       StudentId: req.params.id,
-      SubjectId: req.body.SubjectId, 
+      SubjectId: req.body.SubjectId,
       createdAt: new Date(),
       updatedAd: new Date()
     })
@@ -128,6 +131,6 @@ router.post('/:id/addsubject', function(req, res, next) {
       res.render('add_student', {err:err.message});
     })
   })
-  
+
 
 module.exports = router;

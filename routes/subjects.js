@@ -12,7 +12,7 @@ router.use((req,res, next)=>{
   }
 })
 
-router.get('/', (req, res, next)=>{
+router.get('/', (req, res)=>{
   model.Subject.findAll({
     include : [model.Teacher]
   })
@@ -21,15 +21,15 @@ router.get('/', (req, res, next)=>{
   })
 })
 
-router.get('/:id/enrolledstudents', (req, res, next) => {
+router.get('/:id/enrolledstudents', (req, res) => {
   let id = req.params.id
   model.Subject.findOne({
     where : { id : id }
   })
   .then(subject => {
   model.StudentSubject.findAll({
-    where : { 
-      SubjectId : id 
+    where : {
+      SubjectId : id
   }, include : [model.Student],
     order : [['Student', 'first_name', 'ASC']]
   })
@@ -42,7 +42,7 @@ router.get('/:id/enrolledstudents', (req, res, next) => {
 })
 
 
-router.get('/:student_subject_id/givescore/:subject_id', (req, res, next) => {
+router.get('/:student_subject_id/givescore/:subject_id', (req, res) => {
   model.StudentSubject.findById(req.params.student_subject_id, {
     include : [{ all : true }]
   })
@@ -51,7 +51,7 @@ router.get('/:student_subject_id/givescore/:subject_id', (req, res, next) => {
   })
 })
 
-router.post('/:student_subject_id/givescore/:subject_id', (req, res, next) => {
+router.post('/:student_subject_id/givescore/:subject_id', (req, res) => {
   model.StudentSubject.update({
     score : req.body.score
   },{

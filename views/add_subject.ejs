@@ -9,8 +9,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <%- include layout/header %>
 </head>
-  <body>  
-      
+  <body>
+
     <div class="container">
       <h3>Add Subject to Student</h3>
       <br>
@@ -33,7 +33,7 @@
             <form action="/students/<%= student.id%>/addsubject" method="post">
               <select class="form-control" name="SubjectId">
                 <% data_subjects.forEach(subject => { %>
-                  
+
                 <option value="<%= subject.id%>"><%= subject.subject_name%></option>
                 <%})%>
               </select>
@@ -42,9 +42,9 @@
             </form>
           </td>
         </tr>
-        
+
     </table>
   </div>
-    
+
   </body>
 </html>

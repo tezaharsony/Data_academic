@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
               where : {email : value},
               attributes:['id']
             })
-            .done((err,user)=>{
+            .then((err,user)=>{
               if(err)
               return next('Email address already in use!');
               next();
@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     jurusan: DataTypes.STRING
   });
-  
+
   Student.associate = (models) => {
     Student.belongsToMany(models.Subject, {
       through : 'StudentSubjects'

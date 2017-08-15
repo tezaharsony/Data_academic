@@ -3,9 +3,9 @@
 
 module.exports = function(){
   var chars = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-  length =  7,
+  length =  8,
   result = '';
-  
+
   for(var i = length; i > 0; --i){
     result += chars[Math.round(Math.random() * (chars.length -1))];
   }

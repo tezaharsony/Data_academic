@@ -10,15 +10,15 @@
   <%- include layout/header %>
 </head>
 
-  <body>  
-    
-    <div class="container">  
+  <body>
+
+    <div class="container">
       <h3>Input New Student</h3>
-      
+
       <form action="/students/add" method="post">
-        <span><% if (err) {%> <%= err %> <%}%></span>
+        <span><%= err %> </span>
         <br>
-        <div class="form-group">  
+        <div class="form-group">
           <label>First Name : </label>
           <input class="form-control" type="text" name="first_name" value="">
         </div>
@@ -39,5 +39,5 @@
       </form>
     </div>
   </body>
-  
+
 </html>
